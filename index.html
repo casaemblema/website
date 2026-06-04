@@ -3,117 +3,796 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Casa Emblema — Tu proyecto, nuestro emblema</title>
-  <meta name="description" content="Casa Emblema es una casa productora independiente en Monterrey. Hacemos de tu proyecto un emblema audiovisual: preproducción, producción, postproducción y gestión de contenidos.">
-  <meta property="og:title" content="Casa Emblema — Tu proyecto, nuestro emblema">
-  <meta property="og:description" content="Transformamos tu idea en un emblema audiovisual.">
-  <meta property="og:image" content="assets/logo_casa_emblema.png">
+  <title>Casa Emblema — Estrategia Digital Comercial</title>
+  <meta name="description" content="No hacemos contenido. Construimos estrategias digitales con enfoque comercial. Agencia de estrategia digital para PyMEs en Monterrey, NL.">
+  <meta property="og:title" content="Casa Emblema">
+  <meta property="og:description" content="No hacemos contenido. Construimos estrategias digitales con enfoque comercial.">
   <meta name="theme-color" content="#000000">
-  <link rel="icon" href="assets/favicon.ico">
-  <link rel="preload" href="assets/logo_casa_emblema.png" as="image">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-1: #f7f7f7;
+      --gray-2: #e8e8e8;
+      --gray-3: #999999;
+      --gray-4: #444444;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --max: 1120px;
+      --pad: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.5rem var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.3s;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .nav-name {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 7rem;
+      padding-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--gray-3);
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gray-3);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      line-height: 1.75;
+      color: var(--gray-3);
+      max-width: 38ch;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* ── TAGLINE VISUAL (right side) ── */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .hero-logo-wrap {
+      width: clamp(140px, 22vw, 240px);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .hero-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(255,255,255,0.15), transparent 40%, rgba(255,255,255,0.05), transparent 80%);
+      animation: spin 12s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-logo {
+      width: 70%;
+      filter: brightness(0) invert(1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .content-strategy {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-align: right;
+      line-height: 1.3;
+    }
+
+    .content-strategy .dim { color: var(--gray-3); }
+    .content-strategy .symbol { font-style: italic; margin: 0 0.2em; }
+
+    /* ── SCROLL INDICATOR ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-3);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeup 1s 1.5s both;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 2.5rem;
+      background: linear-gradient(to bottom, var(--gray-3), transparent);
+      animation: grow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes grow {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50% { transform: scaleY(1.4); opacity: 1; }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 0;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: clamp(4rem, 10vw, 8rem) 0; }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── QUÉ HACEMOS ── */
+    #que-hacemos { background: var(--black); }
+
+    .que-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .que-left {
+      padding-right: 4rem;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .que-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .que-headline em { font-style: italic; color: var(--gray-3); }
+
+    .que-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--gray-3);
+      max-width: 42ch;
+    }
+
+    .que-right {
+      padding-left: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .pilar {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      transition: background 0.2s;
+    }
+
+    .pilar:first-child { padding-top: 0; }
+    .pilar:last-child { border-bottom: none; }
+
+    .pilar-num {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-3);
+      padding-top: 0.2rem;
+      font-weight: 500;
+    }
+
+    .pilar-title {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem;
+      color: var(--white);
+    }
+
+    .pilar-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--gray-3);
+    }
+
+    /* ── PLANES ── */
+    #planes { background: var(--black); }
+
+    .planes-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .planes-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.1;
+    }
+
+    .planes-headline em { font-style: italic; color: var(--gray-3); }
+
+    .planes-sub {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray-3);
+    }
+
+    .planes-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: default;
+    }
+
+    .planes-card:hover {
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .planes-card-left {}
+
+    .planes-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 0.75rem;
+    }
+
+    .planes-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .planes-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--gray-3);
+      max-width: 50ch;
+    }
+
+    .planes-arrow {
+      font-size: 1.5rem;
+      color: var(--gray-3);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .planes-card:hover .planes-arrow {
+      transform: translate(4px, -4px);
+      color: var(--white);
+    }
+
+    .planes-footnote {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--gray-3);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .planes-footnote::before {
+      content: '';
+      width: 1.5rem;
+      height: 1px;
+      background: var(--gray-3);
+    }
+
+    /* ── CTA FINAL ── */
+    #contacto {
+      background: var(--white);
+      color: var(--black);
+      text-align: center;
+      padding: clamp(5rem, 12vw, 10rem) 0;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 2rem;
+    }
+
+    .cta-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      max-width: 18ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-headline em { font-style: italic; color: #999; }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--black);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .btn-white:hover {
+      background: var(--gray-2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-black {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-black:hover { background: #222; }
+
+    .btn-black-outline {
+      background: transparent;
+      color: var(--black);
+      border: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .btn-black-outline:hover {
+      border-color: var(--black);
+      background: rgba(0,0,0,0.04);
+    }
+
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-size: 0.75rem;
+      color: var(--gray-3);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-right {
+      font-size: 0.72rem;
+      color: var(--gray-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeup {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-right { align-items: flex-start; }
+      .content-strategy { text-align: left; }
+      .que-grid { grid-template-columns: 1fr; }
+      .que-left { padding-right: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 3rem; margin-bottom: 3rem; }
+      .que-right { padding-left: 0; }
+      .planes-top { grid-template-columns: 1fr; gap: 2rem; }
+      .planes-card { padding: 2rem; }
+      nav .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <header class="container header">
-    <div class="brand">
-      <img class="logo" src="assets/logo_casa_emblema.png" alt="Logo Casa Emblema">
-      <h1>CASA&nbsp;EMBLEMA</h1>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <img class="nav-logo" src="assets/logo_casa_emblema.png" alt="Casa Emblema" onerror="this.style.display='none'">
+      <span class="nav-name">Casa Emblema</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#que-hacemos">Qué hacemos</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Monterrey, NL — Zona Metropolitana</p>
+        <h1 class="hero-headline">
+          No hacemos<br>
+          contenido.<br>
+          <em>Construimos</em><br>
+          estrategia.
+        </h1>
+        <p class="hero-sub">
+          Diseñamos estrategias digitales con enfoque comercial para PyMEs que quieren convertir su presencia en clientes reales.
+        </p>
+        <div class="hero-cta">
+          <a href="#contacto" class="btn btn-white">
+            Hablemos
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#que-hacemos" class="btn btn-outline">Ver más</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-logo-wrap">
+          <img class="hero-logo" src="assets/logo_casa_emblema.png" alt="Ce" onerror="this.outerHTML='<span style=\'font-family:Georgia,serif;font-size:4rem;color:white;position:relative;z-index:1\'>Ce</span>'">
+        </div>
+        <div class="content-strategy">
+          <span class="dim">CONTENT</span>
+          <span class="symbol"> &lt; </span>
+          <span>STRATEGY</span>
+        </div>
+      </div>
     </div>
-    <nav class="nav">
-      <a href="#servicios">Servicios</a>
-      <a href="#quienes">Quiénes somos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+    <div class="scroll-hint">Scroll</div>
+  </section>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="badge">Productora audiovisual — Monterrey</span>
-        <h2>Tu proyecto, nuestro emblema.</h2>
-        <p class="tagline">Hacemos de tu proyecto un emblema audiovisual. Desarrollamos, producimos y gestionamos contenido con identidad: podcasts, canales de YouTube y piezas para redes — del concepto al estreno.</p>
-        <div class="cta">
-          <a class="btn" href="#contacto">Inicia tu proyecto</a>
-          <a class="btn secondary" href="#servicios">Ver servicios</a>
+  <hr class="divider">
+
+  <!-- QUÉ HACEMOS -->
+  <section id="que-hacemos">
+    <div class="wrap">
+      <p class="section-label fade-in">Qué hacemos</p>
+      <div class="que-grid">
+        <div class="que-left fade-in">
+          <h2 class="que-headline">
+            Tu presencia digital<br>
+            <em>convertida en</em><br>
+            adquisición de clientes.
+          </h2>
+          <p class="que-body">
+            La mayoría de los negocios tienen algo valioso que ofrecer, pero no saben cómo traducirlo en más clientes. No por falta de producto — por falta de estrategia.<br><br>
+            Combinamos criterio analítico, producción de contenido y enfoque comercial para construir sistemas digitales que generen resultados medibles.
+          </p>
+        </div>
+        <div class="que-right fade-in">
+          <div class="pilar">
+            <span class="pilar-num">01</span>
+            <div>
+              <p class="pilar-title">Estrategia comercial digital</p>
+              <p class="pilar-desc">Definimos qué comunicar, a quién, cuándo y en qué plataforma. Cada decisión tiene un objetivo comercial detrás.</p>
+            </div>
+          </div>
+          <div class="pilar">
+            <span class="pilar-num">02</span>
+            <div>
+              <p class="pilar-title">Producción de contenido orientado</p>
+              <p class="pilar-desc">El contenido es el medio, no el fin. Lo producimos con intención estratégica, no para cumplir un calendario.</p>
+            </div>
+          </div>
+          <div class="pilar">
+            <span class="pilar-num">03</span>
+            <div>
+              <p class="pilar-title">Métricas e interpretación</p>
+              <p class="pilar-desc">Dashboards con KPIs reales vinculados a adquisición de clientes. No reportes de vanidad.</p>
+            </div>
+          </div>
+          <div class="pilar">
+            <span class="pilar-num">04</span>
+            <div>
+              <p class="pilar-title">Gestión y ejecución</p>
+              <p class="pilar-desc">Nos hacemos cargo de la operación digital para que tú te concentres en tu negocio.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div style="display:flex;justify-content:center">
-        <img class="logo-big" src="assets/logo_casa_emblema.png" alt="Sello Casa Emblema">
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="servicios" class="section">
-      <h3>Servicios</h3>
-      <div class="cards">
-        <div class="card">
-          <h3>Preproducción</h3>
-          <p>Concepto, guion, planificación técnica, identidad audiovisual y logística.</p>
-        </div>
-        <div class="card">
-          <h3>Producción</h3>
-          <p>Grabación en estudio o locación, audio profesional, cámaras e iluminación.</p>
-        </div>
-        <div class="card">
-          <h3>Postproducción</h3>
-          <p>Edición, mezcla y master de audio, corrección de color, versiones vertical/horizontal.</p>
-        </div>
-        <div class="card">
-          <h3>Gestión de contenido</h3>
-          <p>Publicación, optimización para YouTube, Instagram y TikTok, y calendarios.</p>
-        </div>
-        <div class="card">
-          <h3>Consultoría</h3>
-          <p>Estrategia de canal, branding audiovisual y mejoras de flujo de producción.</p>
-        </div>
-        <div class="card">
-          <h3>Paquetes</h3>
-          <p>Planes por episodio, por temporada o por canal con métricas y reportes.</p>
-        </div>
-      </div>
-    </section>
+  <hr class="divider">
 
-    <section id="quienes" class="section">
-      <h3>Quiénes somos</h3>
-      <p>Casa Emblema es una casa productora independiente que transforma ideas en emblemas audiovisuales. Unimos técnica, narrativa y estilo para que cada pieza sea reconocible por su calidad y propósito.</p>
-      <div class="kv">
-        <div>
-          <div class="card"><h3>Enfoque</h3><p>Calidad técnica, estética sólida y entrega puntual. Del concepto al estreno.</p></div>
+  <!-- PLANES -->
+  <section id="planes">
+    <div class="wrap">
+      <p class="section-label fade-in">Planes</p>
+      <div class="planes-top fade-in">
+        <h2 class="planes-headline">
+          Nos adaptamos<br>
+          a tu negocio<br>
+          <em>y presupuesto.</em>
+        </h2>
+        <p class="planes-sub">
+          Cada negocio es diferente. Trabajamos con planes estructurados y también con soluciones a la medida. Escríbenos y diseñamos juntos la estrategia que le corresponde a tu etapa.
+        </p>
+      </div>
+      <div class="fade-in">
+        <div class="planes-card">
+          <div class="planes-card-left">
+            <p class="planes-tag">Plan de entrada</p>
+            <h3 class="planes-title">Plan Inicio</h3>
+            <p class="planes-desc">Para negocios que quieren arrancar con una estrategia digital sólida. Gestión de redes, producción de contenido semanal, calendario editorial y reporte quincenal de resultados.</p>
+          </div>
+          <span class="planes-arrow">↗</span>
         </div>
-        <div>
-          <div class="card"><h3>Sedes y formatos</h3><p>Monterrey — estudio y locación. Formatos vertical y horizontal; podcasts, series y campañas.</p></div>
+        <div class="planes-card" style="border-top: none;">
+          <div class="planes-card-left">
+            <p class="planes-tag">Solución a la medida</p>
+            <h3 class="planes-title">Plan Personalizado</h3>
+            <p class="planes-desc">¿Tu negocio tiene necesidades específicas? Diseñamos una estrategia que se ajuste exactamente a tu etapa, industria y objetivos comerciales.</p>
+          </div>
+          <span class="planes-arrow">↗</span>
         </div>
       </div>
-    </section>
+      <p class="planes-footnote fade-in">Pregunta por nuestros planes y precios. Sin compromiso.</p>
+    </div>
+  </section>
 
-    <section id="contacto" class="section">
-      <h3>Contacto</h3>
-      <p class="k">Cuéntanos brevemente tu proyecto. Te contactamos en menos de 24 h hábiles.</p>
-      <!-- REEMPLAZA el correo en action por el tuyo. Tip: crea uno tipo hola@casaemblema.com -->
-      <form class="form" action="https://formsubmit.co/casaemblema@gmail.com" method="POST">
-        <!-- Opciones útiles de FormSubmit -->
-        <input type="hidden" name="_subject" value="Nuevo lead — Casa Emblema">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://casaemblema.github.io/landing/">
-        <input type="text" name="Nombre" placeholder="Nombre completo" required>
-        <input type="tel" name="WhatsApp" placeholder="WhatsApp (opcional)">
-        <input type="email" name="Email" placeholder="Correo electrónico" required>
-        <input type="text" name="Proyecto" placeholder="Tipo de proyecto (podcast, canal, campaña)" required>
-        <textarea name="Mensaje" placeholder="Cuéntanos la idea y objetivo" ></textarea>
-        <button class="btn" type="submit">Enviar</button>
-      </form>
-      <div class="hr"></div>
-      <p class="k">También puedes escribirnos por DM en Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener">CasaEmblema</a></p>
-    </section>
-  </main>
+  <!-- CTA FINAL -->
+  <section id="contacto">
+    <div class="wrap">
+      <p class="cta-eyebrow">Monterrey, NL</p>
+      <h2 class="cta-headline">
+        Un emblema no se impone,
+        <em>se construye.</em>
+      </h2>
+      <p class="cta-sub">¿Listo para convertir tu presencia digital en clientes reales?</p>
+      <div class="cta-group">
+        <a href="#" class="btn btn-black" id="whatsapp-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribirnos por WhatsApp
+        </a>
+        <a href="#que-hacemos" class="btn btn-black-outline">Ver qué hacemos</a>
+      </div>
+    </div>
+  </section>
 
-  <footer class="container footer">
-    <small>© <span id="y"></span> Casa Emblema — Monterrey, MX</small>
-    <small>Tu proyecto, nuestro emblema.</small>
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-left">© <span id="yr"></span> Casa Emblema — Monterrey, MX</span>
+    <span class="footer-right">Content &lt; Strategy</span>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav scroll style
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.borderBottomColor =
+        window.scrollY > 40 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)';
+    });
+
+    // WhatsApp placeholder
+    document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      // TODO: reemplazar con número real
+      // this.href = 'https://wa.me/528112345678?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20planes.';
+    });
   </script>
+
 </body>
 </html>
