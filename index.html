@@ -2,547 +2,445 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Casa Emblema — Estrategia Digital Comercial</title>
-<meta name="description" content="No hacemos contenido. Construimos estrategias digitales con enfoque comercial. Agencia de estrategia digital para PyMEs en Monterrey, NL.">
-<meta property="og:title" content="Casa Emblema — Estrategia Digital Comercial">
-<meta property="og:description" content="No hacemos contenido. Construimos estrategias digitales con enfoque comercial.">
-<meta property="og:image" content="https://emblema.casa/assets/logo_casa_emblema.png">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casa Emblema — Growth &amp; GTM</title>
+<meta name="description" content="Agencia de Dirección Creativa especializada en Growth y GTM. Monterrey, NL.">
+<meta property="og:title" content="Casa Emblema — Growth &amp; GTM">
+<meta property="og:description" content="No vendemos contenido. Construimos estrategia.">
+<meta property="og:image" content="https://emblema.casa/assets/logo_mark.png">
 <meta name="theme-color" content="#0E1013">
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0E1013; --fg:#F5F5F0; --dim:#AEB4BB; --faint:#78808A; --ghost:#414952;
+  --acc:#7EA2B8; --hair:rgba(245,245,240,.14); --hair2:rgba(245,245,240,.08);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Martian Mono',ui-monospace,monospace;
+  --mono:'Martian Mono',ui-monospace,monospace;
+  --e:cubic-bezier(.65,0,.2,1);
+}
+html,body{height:100%;background:var(--bg);overscroll-behavior:none}
+body{color:var(--fg);font-family:var(--sans);font-weight:300;overflow:hidden}
+body::after{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.03;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.mn{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em}
 
-  :root{
-    --bg:        #0E1013;
-    --bg-alt:    #111418;
-    --fg:        #F5F5F0;
-    --dim:       #9298A0;
-    --faint:     #5D646D;
-    --accent:    #7EA2B8;
-    --hair:      rgba(245,245,240,0.11);
-    --hair-soft: rgba(245,245,240,0.06);
+/* ══ SHELL ══ */
+.app{position:fixed;inset:0;display:grid;
+  grid-template-columns:clamp(88px,10vw,148px) 1fr;
+  grid-template-rows:1fr auto}
 
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans:  'Inter', system-ui, -apple-system, sans-serif;
-    --mono:  'JetBrains Mono', ui-monospace, monospace;
+/* ══ RAIL ══ */
+.rail{grid-row:1/3;border-right:1px solid var(--hair);display:flex;flex-direction:column;
+  padding:clamp(1rem,2vw,1.6rem) 0}
+.rail .mk{width:clamp(22px,2.2vw,30px);margin:0 auto clamp(2rem,5vh,3.4rem)}
+.rail ol{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:auto;margin-bottom:auto}
+.rail li{position:relative}
+.rail button{all:unset;cursor:pointer;display:block;width:100%;
+  padding:clamp(.6rem,1.4vh,.95rem) 0 clamp(.6rem,1.4vh,.95rem) clamp(.9rem,1.6vw,1.5rem);
+  font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);transition:color .35s,letter-spacing .4s var(--e)}
+.rail button::before{content:'';position:absolute;left:0;top:50%;width:0;height:1px;
+  background:var(--acc);transition:width .5s var(--e);transform:translateY(-50%)}
+.rail button:hover{color:var(--dim)}
+.rail li.on button{color:var(--fg);letter-spacing:.15em}
+.rail li.on button::before{width:clamp(.55rem,1.1vw,1rem)}
+.rail .foot{margin-top:auto;font-family:var(--mono);font-size:.44rem;
+  letter-spacing:.2em;color:var(--faint);writing-mode:vertical-rl;
+  transform:rotate(180deg);margin-left:auto;margin-right:auto;padding-bottom:.4rem}
 
-    --max: 1180px;
-    --pad: clamp(1.5rem, 5vw, 4.5rem);
-  }
+/* ══ STAGE ══ */
+.stage{position:relative;overflow:hidden;display:grid;grid-template-rows:1fr auto auto;min-height:0}
 
-  html{ scroll-behavior:smooth; }
+/* ── diagram ── */
+.plot{position:relative;min-height:0}
+.gr line{stroke:#191D22;stroke-width:1}
+.gr line.ax{stroke:#242A31}
+.tk line{stroke:#2E353C;stroke-width:1}
+.tk line.mj{stroke:#444C55}
+.rdt{position:absolute;top:clamp(1rem,2.4vh,1.8rem);left:clamp(1.3rem,3.4vw,3.2rem);
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;
+  line-height:2;pointer-events:none}
+.rdt .a{color:var(--faint);display:block}
+.rdt .b{color:var(--acc);display:block}
+.rdt .c{color:#6B737C;display:block}
+.plot svg{position:absolute;inset:0;width:100%;height:100%}
+.nd{transition:transform 1.15s var(--e),opacity .6s ease}
+.nd circle{fill:var(--acc)}
+.nd.d circle{fill:#4E565F}
+.ln{stroke:rgba(245,245,240,.18);stroke-width:1;fill:none;
+  stroke-dasharray:1 1;stroke-dashoffset:1;
+  transition:stroke-dashoffset 1.1s var(--e) .25s,opacity .5s ease}
+.ln.on{stroke-dashoffset:0}
+.ln.acc{stroke:var(--acc);opacity:.55}
+.plot .tag{position:absolute;font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--dim);opacity:0;transition:opacity .22s ease}
+.plot .tag.on{opacity:1;transition:opacity .5s ease .55s}
 
-  body{
-    background:var(--bg);
-    color:var(--fg);
-    font-family:var(--sans);
-    font-weight:300;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+/* ── panel ── */
+.panel{border-top:1px solid var(--hair);padding:clamp(1.3rem,3.2vh,2.4rem) clamp(1.3rem,3.4vw,3.2rem);
+  min-height:clamp(230px,38vh,330px);position:relative}
+.scene{position:absolute;inset:0;padding:inherit;opacity:0;pointer-events:none;
+  transform:translateY(14px);transition:opacity .55s ease,transform .7s var(--e)}
+.scene.on{opacity:1;pointer-events:auto;transform:none}
 
-  body::before{
-    content:'';
-    position:fixed; inset:0; z-index:9999;
-    pointer-events:none;
-    opacity:0.028;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+.hd{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:clamp(.9rem,2vh,1.5rem)}
+.hd .i{font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;color:var(--acc)}
+.hd .t{font-family:var(--serif);font-size:clamp(1.25rem,2.9vw,2.3rem);line-height:1;
+  letter-spacing:-.015em}
+.hd .t em{font-style:italic;color:var(--dim)}
 
-  .wrap{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
+/* numbered propositions */
+.props{display:grid;gap:0;max-width:1180px}
+.props div{display:grid;grid-template-columns:2.6rem 1fr;gap:0;
+  padding:clamp(.45rem,1.1vh,.72rem) 0;border-top:1px solid var(--hair2);align-items:baseline}
+.props div:last-child{border-bottom:1px solid var(--hair2)}
+.props .n{font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;color:#8A929B}
+.props .x{font-size:clamp(.68rem,.92vw,.79rem);line-height:1.6;color:var(--dim)}
+.props .x b{color:var(--fg);font-weight:400}
+.coda{margin-top:clamp(.8rem,1.8vh,1.3rem);font-family:var(--serif);font-style:italic;
+  font-size:clamp(1rem,1.9vw,1.5rem);color:var(--fg)}
+.coda s{text-decoration:none;color:var(--faint);font-style:normal;font-family:var(--sans);
+  font-size:.74em;display:block;margin-bottom:.15rem}
 
-  /* ══════ NAV ══════ */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:1.15rem var(--pad);
-    display:flex; align-items:center; justify-content:space-between;
-    background:rgba(14,16,19,0.88);
-    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--hair-soft);
-    transition:border-color .3s;
-  }
-  .nav-brand{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
-  .nav-logo{ width:26px; height:26px; object-fit:contain; mix-blend-mode:screen; }
-  .nav-name{
-    font-family:var(--mono); font-weight:500;
-    font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fg);
-  }
-  .nav-links{ display:flex; gap:2.2rem; list-style:none; }
-  .nav-links a{
-    font-family:var(--mono); font-size:.72rem; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--faint); text-decoration:none; transition:color .2s;
-  }
-  .nav-links a:hover{ color:var(--fg); }
+/* comparison matrix */
+.mx{display:grid;grid-template-columns:8.5rem 1fr 1fr;gap:0;max-width:1180px}
+.mx > *{padding:clamp(.42rem,1vh,.68rem) 1rem clamp(.42rem,1vh,.68rem) 0;
+  border-top:1px solid var(--hair2)}
+.mx .h{border-top:none;border-bottom:1px solid var(--hair)}
+.mx .k{font-family:var(--mono);font-size:.55rem;letter-spacing:.18em;
+  text-transform:uppercase;color:#8A929B}
+.mx .w{font-family:var(--serif);font-size:clamp(1.3rem,3vw,2.4rem);line-height:1;
+  letter-spacing:-.02em;border-top:none;border-bottom:1px solid var(--hair);
+  padding-bottom:clamp(.4rem,1vh,.7rem)}
+.mx .w small{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:.4rem}
+.mx .v{font-size:clamp(.68rem,.92vw,.79rem);line-height:1.6;color:var(--dim)}
+.mx .v b{color:var(--fg);font-weight:400}
 
-  /* ══════ SHARED ══════ */
-  section{ padding:clamp(4.5rem,10vw,8.5rem) 0; }
+/* sequence */
+.seq{display:flex;align-items:stretch;gap:0;max-width:1180px;flex-wrap:wrap}
+.seq .st{flex:1 1 180px;padding:0 clamp(1rem,2vw,1.8rem) 0 0;border-right:1px solid var(--hair2);
+  margin-right:clamp(1rem,2vw,1.8rem)}
+.seq .st:last-child{border-right:none;margin-right:0;padding-right:0}
+.seq .st .n{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;color:var(--acc);
+  display:block;margin-bottom:.5rem}
+.seq .st .w{font-family:var(--serif);font-size:clamp(1.05rem,2.1vw,1.7rem);line-height:1.05;
+  margin-bottom:.5rem}
+.seq .st .d{font-size:clamp(.68rem,.92vw,.79rem);line-height:1.6;color:var(--dim)}
+.note{margin-top:clamp(.9rem,2vh,1.4rem);font-size:clamp(.7rem,.95vw,.82rem);line-height:1.55;color:var(--faint)}
+.note b{color:var(--fg);font-weight:400}
 
-  .label{
-    display:flex; align-items:center; gap:1.1rem;
-    font-family:var(--mono); font-size:.7rem; font-weight:500;
-    letter-spacing:.24em; text-transform:uppercase; color:var(--accent);
-    margin-bottom:2.6rem;
-  }
-  .label::after{ content:''; flex:1; height:1px; background:var(--hair-soft); }
+/* contact */
+.ct{display:flex;gap:clamp(1.6rem,4vw,3.6rem);flex-wrap:wrap;align-items:flex-end}
+.ct a{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg);text-decoration:none;padding-bottom:.4rem;border-bottom:1px solid var(--acc);
+  transition:color .3s,border-color .3s}
+.ct a:hover{color:var(--acc)}
+.ct .big{font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.3rem,3.2vw,2.6rem);line-height:1.12;max-width:24ch;flex:1 1 100%;
+  margin-bottom:clamp(1.4rem,3.2vh,2.4rem)}
 
-  .display{
-    font-family:var(--serif); font-weight:400;
-    line-height:1.05; letter-spacing:-.012em;
-  }
-  .display em{ font-style:italic; color:var(--dim); }
+/* ══ STATUS ══ */
+.bar{border-top:1px solid var(--hair);
+  padding:.62rem clamp(1.3rem,3.4vw,3.2rem);display:flex;justify-content:space-between;
+  gap:1rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint);white-space:nowrap;overflow:hidden}
+.bar b{color:var(--dim);font-weight:400}
+.bar .hint{color:var(--ghost)}
 
-  .body-txt{ color:var(--dim); line-height:1.75; font-weight:300; }
-
-  hr.div{ border:none; border-top:1px solid var(--hair-soft); margin:0; }
-
-  /* ══════ HERO ══════ */
-  .hero{
-    min-height:100vh; display:flex; align-items:center;
-    padding-top:7rem; padding-bottom:5rem; position:relative;
-  }
-  .hero-inner{
-    max-width:var(--max); margin:0 auto; padding:0 var(--pad);
-    display:grid; grid-template-columns:1.15fr .85fr; gap:4rem; align-items:center; width:100%;
-  }
-  .hero-eyebrow{
-    display:flex; align-items:center; gap:.85rem;
-    font-family:var(--mono); font-size:.72rem; letter-spacing:.2em;
-    text-transform:uppercase; color:var(--faint); margin-bottom:1.9rem;
-  }
-  .hero-eyebrow::before{ content:''; width:2.2rem; height:1px; background:var(--accent); }
-
-  .hero-h1{ font-size:clamp(2.9rem,6.2vw,5.6rem); margin-bottom:2rem; }
-
-  .hero-sub{
-    font-size:clamp(.98rem,1.5vw,1.12rem); line-height:1.75;
-    color:var(--dim); max-width:40ch; margin-bottom:2.8rem;
-  }
-  .hero-cta{ display:flex; gap:.9rem; flex-wrap:wrap; }
-
-  .hero-right{ display:flex; flex-direction:column; align-items:flex-end; gap:2.2rem; }
-  .mark-ring{
-    width:clamp(150px,20vw,235px); aspect-ratio:1;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--hair); border-radius:50%; padding:2.4rem; position:relative;
-  }
-  .mark-ring::before{
-    content:''; position:absolute; inset:-1px; border-radius:50%;
-    background:conic-gradient(from 0deg, rgba(126,162,184,.35), transparent 38%, rgba(245,245,240,.06), transparent 82%);
-    animation:spin 14s linear infinite;
-  }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  .mark-logo{ width:72%; mix-blend-mode:screen; position:relative; z-index:1; }
-
-  .mark-txt{
-    font-family:var(--serif); font-size:clamp(1.05rem,1.9vw,1.5rem);
-    letter-spacing:.05em; text-align:right;
-  }
-  .mark-txt .dim{ color:var(--faint); }
-  .mark-txt .lt{ color:var(--accent); font-style:italic; padding:0 .28em; }
-
-  .scroll-hint{
-    position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
-    display:flex; flex-direction:column; align-items:center; gap:.55rem;
-    font-family:var(--mono); font-size:.62rem; letter-spacing:.2em;
-    text-transform:uppercase; color:var(--faint);
-  }
-  .scroll-hint::after{
-    content:''; width:1px; height:2.4rem;
-    background:linear-gradient(to bottom,var(--faint),transparent);
-    animation:pulse 1.8s ease-in-out infinite;
-  }
-  @keyframes pulse{ 0%,100%{ transform:scaleY(1); opacity:.45 } 50%{ transform:scaleY(1.35); opacity:1 } }
-
-  /* ══════ 01 DIAGNÓSTICO ══════ */
-  .diag-grid{ display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-  .diag-h{ font-size:clamp(2rem,3.6vw,3.4rem); }
-  .diag-body{ font-size:1.02rem; }
-  .diag-body p + p{ margin-top:1.4rem; }
-  .diag-quote{
-    margin-top:2.6rem; padding-left:1.6rem; border-left:2px solid var(--accent);
-  }
-  .diag-quote .a{ font-size:1rem; color:var(--dim); line-height:1.5; }
-  .diag-quote .b{
-    font-family:var(--serif); font-style:italic; font-size:1.5rem;
-    color:var(--fg); line-height:1.35; margin-top:.35rem;
-  }
-
-  /* ══════ 02 DOS FRENTES ══════ */
-  .frentes-h{ font-size:clamp(2rem,3.6vw,3.4rem); margin-bottom:1.4rem; }
-  .frentes-lead{ font-size:1.02rem; max-width:56ch; margin-bottom:4rem; }
-
-  .frentes{ display:grid; grid-template-columns:1fr 1fr; gap:0; }
-  .frente{ padding:0 3.2rem; display:flex; flex-direction:column; }
-  .frente:first-child{ padding-left:0; }
-  .frente:last-child{ padding-right:0; border-left:1px solid var(--hair); }
-
-  .frente-n{
-    font-family:var(--mono); font-size:.72rem; font-weight:500;
-    letter-spacing:.2em; color:var(--accent); margin-bottom:1rem;
-  }
-  .frente-name{
-    font-family:var(--serif); font-size:clamp(1.6rem,2.6vw,2.3rem);
-    line-height:1.12; margin-bottom:1.1rem;
-  }
-  .frente-desc{ font-size:.96rem; line-height:1.7; color:var(--dim); margin-bottom:2rem; }
-
-  .frente-list{ list-style:none; margin-bottom:2rem; }
-  .frente-list li{
-    font-size:.9rem; color:var(--dim); padding:.72rem 0 .72rem 1.5rem;
-    border-bottom:1px solid var(--hair-soft); position:relative; line-height:1.5;
-  }
-  .frente-list li:first-child{ border-top:1px solid var(--hair-soft); }
-  .frente-list li::before{
-    content:''; position:absolute; left:0; top:1.28rem;
-    width:6px; height:1px; background:var(--accent);
-  }
-
-  .frente-note{
-    margin-top:auto; padding-top:1.5rem;
-    font-family:var(--mono); font-size:.76rem; line-height:1.65;
-    letter-spacing:.02em; color:var(--faint);
-  }
-
-  /* ══════ 03 PROCESO ══════ */
-  .proc-h{ font-size:clamp(2rem,3.6vw,3.4rem); margin-bottom:3.4rem; }
-  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-  .step{
-    padding:2rem 1.8rem 0 1.8rem;
-    border-top:1px solid var(--hair);
-    position:relative;
-  }
-  .step:first-child{ padding-left:0; }
-  .step:last-child{ padding-right:0; }
-  .step::before{
-    content:''; position:absolute; top:-1px; left:0; width:34%; height:1px; background:var(--accent);
-  }
-  .step-n{
-    font-family:var(--mono); font-size:.72rem; font-weight:500;
-    letter-spacing:.18em; color:var(--accent); margin-bottom:.9rem;
-  }
-  .step-t{ font-size:1.02rem; font-weight:500; color:var(--fg); margin-bottom:.6rem; letter-spacing:-.005em; }
-  .step-d{ font-size:.86rem; line-height:1.65; color:var(--dim); }
-
-  /* ══════ 04 IMPACTO ══════ */
-  #impacto{ background:var(--bg-alt); }
-  .imp-h{ font-size:clamp(2rem,3.6vw,3.4rem); margin-bottom:3rem; }
-  .imp{
-    display:grid; grid-template-columns:4.5rem 1fr; gap:0;
-    padding:1.7rem 0; border-top:1px solid var(--hair-soft); align-items:start;
-  }
-  .imp:last-of-type{ border-bottom:1px solid var(--hair-soft); }
-  .imp-n{
-    font-family:var(--mono); font-size:.72rem; font-weight:500;
-    letter-spacing:.16em; color:var(--accent); padding-top:.4rem;
-  }
-  .imp-t{ font-size:1.15rem; font-weight:500; color:var(--fg); margin-bottom:.45rem; letter-spacing:-.005em; }
-  .imp-d{ font-size:.93rem; line-height:1.65; color:var(--dim); max-width:62ch; }
-
-  /* ══════ CTA ══════ */
-  #contacto{ padding:clamp(5rem,11vw,9rem) 0; text-align:center; }
-  .cta-eyebrow{
-    font-family:var(--mono); font-size:.7rem; letter-spacing:.24em;
-    text-transform:uppercase; color:var(--accent); margin-bottom:1.8rem;
-  }
-  .cta-h{
-    font-size:clamp(2.2rem,4.6vw,4.2rem); margin-bottom:1.3rem;
-    max-width:20ch; margin-left:auto; margin-right:auto;
-  }
-  .cta-sub{ font-size:1rem; color:var(--dim); margin-bottom:2.8rem; line-height:1.7; }
-  .cta-group{ display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; }
-
-  /* ══════ BUTTONS ══════ */
-  .btn{
-    display:inline-flex; align-items:center; gap:.55rem;
-    padding:.9rem 2rem; font-family:var(--mono); font-size:.72rem; font-weight:500;
-    letter-spacing:.14em; text-transform:uppercase; text-decoration:none;
-    cursor:pointer; border:1px solid transparent; transition:all .2s;
-  }
-  .btn-solid{ background:var(--fg); color:var(--bg); }
-  .btn-solid:hover{ background:#fff; }
-  .btn-ghost{ background:transparent; color:var(--fg); border-color:var(--hair); }
-  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
-  .btn svg{ width:15px; height:15px; flex-shrink:0; }
-
-  /* ══════ FOOTER ══════ */
-  footer{
-    border-top:1px solid var(--hair-soft);
-    padding:1.8rem var(--pad);
-    display:flex; align-items:center; justify-content:space-between;
-    flex-wrap:wrap; gap:.8rem;
-    font-family:var(--mono); font-size:.68rem; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--faint);
-  }
-
-  /* ══════ ANIM ══════ */
-  .fade{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
-  .fade.in{ opacity:1; transform:none; }
-
-  /* ══════ RESPONSIVE ══════ */
-  @media (max-width:900px){
-    .steps{ grid-template-columns:1fr 1fr; }
-    .step{ padding-left:1.4rem; padding-right:1.4rem; }
-    .step:nth-child(1),.step:nth-child(3){ padding-left:0; }
-    .step:nth-child(2),.step:nth-child(4){ padding-right:0; }
-  }
-  @media (max-width:768px){
-    .nav-links{ display:none; }
-    .hero-inner{ grid-template-columns:1fr; gap:3rem; }
-    .hero-right{ align-items:flex-start; }
-    .mark-txt{ text-align:left; }
-    .diag-grid{ grid-template-columns:1fr; gap:2.6rem; }
-    .frentes{ grid-template-columns:1fr; }
-    .frente{ padding:0; }
-    .frente:last-child{
-      border-left:none; border-top:1px solid var(--hair);
-      padding-top:3rem; margin-top:3rem;
-    }
-    .steps{ grid-template-columns:1fr; }
-    .step{ padding:1.6rem 0 0 0; }
-    .step::before{ width:22%; }
-    .imp{ grid-template-columns:3.2rem 1fr; }
-  }
+/* ══ MOBILE ══ */
+@media (max-width:820px){
+  body{overflow:auto}
+  .app{position:static;display:flex;flex-direction:column;min-height:100svh}
+  .rail{border-right:none;border-bottom:1px solid var(--hair);
+    flex-direction:row;align-items:center;gap:.9rem;padding:.85rem 1.1rem;
+    position:sticky;top:0;background:rgba(14,16,19,.94);backdrop-filter:blur(12px);z-index:50}
+  .rail .mk{width:20px;margin:0 .4rem 0 0}
+  .rail ol{flex-direction:row;margin:0;gap:.1rem;overflow-x:auto;scrollbar-width:none;
+    flex:1 1 auto;min-width:0;-webkit-overflow-scrolling:touch}
+  .rail ol::-webkit-scrollbar{display:none}
+  .rail button{padding:.4rem .5rem;font-size:.48rem;letter-spacing:.1em}
+  .rail li:not(.on) button .w{display:none}
+  .rail button::before{top:auto;bottom:0;left:.7rem;width:0;height:1px}
+  .rail li.on button::before{width:1rem}
+  .rail .foot{display:none}
+  .stage{display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+  .plot{height:38svh;flex:none}
+  .nd circle{r:11}
+  .nd:first-child circle{r:16}
+  .ln{stroke-width:3}
+  .tk line{stroke-width:2}
+  .rdt{left:1.2rem;top:1.1rem}
+  .panel{min-height:auto;padding:1.5rem 1.2rem 2.2rem;flex:1 1 auto}
+  .scene{position:relative;inset:auto;padding:0;display:none}
+  .scene.on{display:block}
+  .mx{grid-template-columns:1fr 1fr;gap:0 1rem}
+  .mx .k{display:none}
+  .mx .v::before{content:attr(data-k);display:block;font-family:var(--mono);font-size:.5rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:.25rem}
+  .seq .st{flex:1 1 100%;border-right:none;margin-right:0;padding:0 0 1.1rem 0;
+    border-bottom:1px solid var(--hair2);margin-bottom:1.1rem}
+  .seq .st:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .bar{padding:.7rem 1.2rem}
+  .bar .geo{display:none}
+  .bar .hint{display:none}
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-brand">
-    <img class="nav-logo" src="assets/logo_casa_emblema.png" alt="Casa Emblema" onerror="this.style.display='none'">
-    <span class="nav-name">Casa Emblema</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#diagnostico">Posición</a></li>
-    <li><a href="#frentes">Qué hacemos</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#impacto">Impacto</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-</nav>
+<div class="app">
 
-<!-- ══════ HERO ══════ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <p class="hero-eyebrow">Monterrey, NL — Zona Metropolitana</p>
-      <h1 class="display hero-h1">
-        No hacemos<br>contenido.<br><em>Construimos</em><br>estrategia.
-      </h1>
-      <p class="hero-sub">
-        Estrategia digital con enfoque comercial para PyMEs en Monterrey.
-      </p>
-      <div class="hero-cta">
-        <a href="#contacto" class="btn btn-solid">
-          Hablemos
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <a href="#frentes" class="btn btn-ghost">Qué hacemos</a>
-      </div>
+  <!-- ══ RAIL ══ -->
+  <nav class="rail">
+    <img class="mk" src="assets/logo_mark.png" alt="Casa Emblema" onerror="this.style.display='none'">
+    <ol id="idx">
+      <li class="on"><button data-s="0">01<span class="w"> Diagnóstico</span></button></li>
+      <li><button data-s="1">02<span class="w"> Caminos</span></button></li>
+      <li><button data-s="2">03<span class="w"> Método</span></button></li>
+      <li><button data-s="3">04<span class="w"> Contacto</span></button></li>
+    </ol>
+    <span class="foot">Content &lt; Strategy</span>
+  </nav>
+
+  <!-- ══ STAGE ══ -->
+  <main class="stage">
+
+    <div class="plot" id="plot">
+      <svg id="svg" viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+      <div class="rdt"><span class="a" id="rdA"></span><span class="b" id="rdB"></span><span class="c" id="rdC"></span></div>
+      <span class="tag" id="tagA"></span>
+      <span class="tag" id="tagB"></span>
     </div>
-    <div class="hero-right">
-      <div class="mark-ring">
-        <img class="mark-logo" src="assets/logo_casa_emblema.png" alt="Ce" onerror="this.style.display='none'">
-      </div>
-      <div class="mark-txt"><span class="dim">CONTENT</span><span class="lt">&lt;</span>STRATEGY</div>
-    </div>
-  </div>
-  <div class="scroll-hint">Scroll</div>
-</section>
 
-<hr class="div">
+    <div class="panel">
 
-<!-- ══════ 01 · DIAGNÓSTICO ══════ -->
-<section id="diagnostico">
-  <div class="wrap">
-    <p class="label fade">01 — El diagnóstico</p>
-    <div class="diag-grid">
-      <h2 class="display diag-h fade">
-        El problema<br>casi nunca es<br><em>el producto.</em>
-      </h2>
-      <div class="fade">
-        <div class="body-txt diag-body">
-          <p>La mayoría de los negocios tienen algo valioso que ofrecer y aun así su presencia digital no les trae a nadie nuevo. Publicar sin saber a quién, medir sin saber qué. El resultado es una cuenta activa que no genera negocio.</p>
+      <!-- 01 -->
+      <section class="scene on" data-s="0">
+        <div class="hd"><span class="i">01</span>
+          <h2 class="t">No es un problema <em>de contenido.</em></h2></div>
+        <div class="props">
+          <div><span class="n">i</span><span class="x">Publican con constancia.</span></div>
+          <div><span class="n">ii</span><span class="x">Invierten en pauta.</span></div>
+          <div><span class="n">iii</span><span class="x"><b>Nada de eso trae clientes nuevos.</b></span></div>
         </div>
-        <div class="diag-quote">
-          <p class="a">El contenido es el medio.</p>
-          <p class="b">La estrategia es la maquinaria que vende.</p>
+        <p class="coda"><s>No falta producción.</s>Falta una decisión.</p>
+      </section>
+
+      <!-- 02 -->
+      <section class="scene" data-s="1">
+        <div class="hd"><span class="i">02</span>
+          <h2 class="t">"¿Lanzar algo nuevo, <em>o crecer lo que ya tienes?"</em></h2></div>
+        <div class="mx">
+          <span class="k h"></span>
+          <span class="w"><small>Camino 01</small>GTM</span>
+          <span class="w"><small>Camino 02</small>Growth</span>
+
+          <span class="k">Cuándo</span>
+          <span class="v" data-k="GTM — Cuándo"><b>Hay algo nuevo</b> que llevar al mercado: producto, servicio, segmento, plaza.</span>
+          <span class="v" data-k="Growth — Cuándo"><b>El negocio ya opera</b> y hace falta escalar lo que funciona.</span>
+
+          <span class="k">Qué resuelve</span>
+          <span class="v" data-k="GTM — Resuelve">La entrada. A quién, con qué mensaje, por qué canal, a qué precio.</span>
+          <span class="v" data-k="Growth — Resuelve">La escala. Qué se comunica, cuándo, y qué número dice si sirvió.</span>
+
+          <span class="k">Formato</span>
+          <span class="v" data-k="GTM — Formato">Plan completo. Pago único.</span>
+          <span class="v" data-k="Growth — Formato">Dirección mensual.</span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<hr class="div">
-
-<!-- ══════ 02 · DOS FRENTES ══════ -->
-<section id="frentes">
-  <div class="wrap">
-    <p class="label fade">02 — Qué hacemos</p>
-    <h2 class="display frentes-h fade">Dos frentes.<br><em>Un solo objetivo.</em></h2>
-    <p class="body-txt frentes-lead fade">
-      La comunicación y la infraestructura que la sostiene. Cada frente existe para que el otro funcione.
-    </p>
-
-    <div class="frentes">
-      <div class="frente fade">
-        <p class="frente-n">01</p>
-        <h3 class="frente-name">Dirección<br>Estratégica</h3>
-        <p class="frente-desc">
-          Qué comunicar, a quién, cuándo y en qué plataforma. Cada decisión con un objetivo comercial detrás.
-        </p>
-        <ul class="frente-list">
-          <li>Estrategia y calendario editorial</li>
-          <li>Producción y dirección de contenido</li>
-          <li>Gestión de redes sociales</li>
-          <li>Sitio web y dominio</li>
-          <li>Reportes con interpretación de métricas</li>
-        </ul>
-        <p class="frente-note">Sobre el negocio, no sobre un catálogo.</p>
-      </div>
-
-      <div class="frente fade">
-        <p class="frente-n">02</p>
-        <h3 class="frente-name">Sistema<br>Ancoria</h3>
-        <p class="frente-desc">
-          La infraestructura que ordena la operación comercial. Diseñada sobre el funnel real del negocio, etapa por etapa.
-        </p>
-        <ul class="frente-list">
-          <li>CRM y gestión de leads</li>
-          <li>Automatización de conversaciones</li>
-          <li>Gestión de citas y agenda</li>
-          <li>Captura y clasificación de contactos</li>
-          <li>Inbox unificado y campañas</li>
-        </ul>
-        <p class="frente-note">Solo lo que la operación requiere. Ni una herramienta de más.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="div">
-
-<!-- ══════ 03 · PROCESO ══════ -->
-<section id="proceso">
-  <div class="wrap">
-    <p class="label fade">03 — Cómo trabajamos</p>
-    <h2 class="display proc-h fade">Nada se propone<br><em>antes de entender.</em></h2>
-
-    <div class="steps">
-      <div class="step fade">
-        <p class="step-n">01</p>
-        <p class="step-t">Diagnóstico</p>
-        <p class="step-d">Sesión presencial. Producto, cliente, competencia y objetivos reales.</p>
-      </div>
-      <div class="step fade">
-        <p class="step-n">02</p>
-        <p class="step-t">Diseño del funnel</p>
-        <p class="step-d">Del primer contacto al cierre. Qué hace falta en cada etapa.</p>
-      </div>
-      <div class="step fade">
-        <p class="step-n">03</p>
-        <p class="step-t">Construcción</p>
-        <p class="step-d">Entregables, herramientas y tarifa a la medida. No un paquete fijo.</p>
-      </div>
-      <div class="step fade">
-        <p class="step-n">04</p>
-        <p class="step-t">Operación y ajuste</p>
-        <p class="step-d">Lo que no genera resultado se corrige. Lo que sí, se escala.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════ 04 · IMPACTO ══════ -->
-<section id="impacto">
-  <div class="wrap">
-    <p class="label fade">04 — Impacto</p>
-    <h2 class="display imp-h fade">Lo que buscamos<br><em>generar.</em></h2>
-
-    <div class="fade">
-      <div class="imp">
-        <p class="imp-n">01</p>
-        <div>
-          <p class="imp-t">Posicionamiento de marca sostenido</p>
-          <p class="imp-d">Una marca que se reconoce en su mercado, no una cuenta que publica.</p>
+      <!-- 03 -->
+      <section class="scene" data-s="2">
+        <div class="hd"><span class="i">03</span>
+          <h2 class="t">Plan <em>y</em> ejecución.</h2></div>
+        <div class="seq">
+          <div class="st"><span class="n">01</span><p class="w serif">Estrategia</p>
+            <p class="d">Qué hacer y por qué. Mercado, mensaje, canal, precio y la métrica que lo juzga.</p></div>
+          <div class="st"><span class="n">02</span><p class="w serif">Ejecución</p>
+            <p class="d">Producción y operación mes con mes. Lo que el plan define, hecho.</p></div>
+          <div class="st"><span class="n">03</span><p class="w serif">Medición</p>
+            <p class="d">Lo que no genera resultado se corrige. Lo que sí, se escala.</p></div>
         </div>
-      </div>
-      <div class="imp">
-        <p class="imp-n">02</p>
-        <div>
-          <p class="imp-t">Generación de demanda vía redes</p>
-          <p class="imp-d">Contenido y campañas diseñadas para generar conversaciones, no impresiones.</p>
+        <p class="note"><b>La mayoría entrega el plan y se va.</b> Nosotros producimos lo que lo ejecuta.</p>
+      </section>
+
+      <!-- 04 -->
+      <section class="scene" data-s="3">
+        <div class="hd"><span class="i">04</span>
+          <h2 class="t">Monterrey, <em>NL</em></h2></div>
+        <div class="ct">
+          <p class="big">Un emblema no se impone, se construye.</p>
+          <a href="https://instagram.com/casa_emblema" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:casaemblema@gmail.com">casaemblema@gmail.com</a>
         </div>
-      </div>
-      <div class="imp">
-        <p class="imp-n">03</p>
-        <div>
-          <p class="imp-t">Adquisición medible</p>
-          <p class="imp-d">Leads atribuibles a canal, con costo por cliente definido y en optimización.</p>
-        </div>
-      </div>
-      <div class="imp">
-        <p class="imp-n">04</p>
-        <div>
-          <p class="imp-t">Operación digital ordenada</p>
-          <p class="imp-d">Un sistema que captura, clasifica y da seguimiento sin depender de seguimiento manual.</p>
-        </div>
-      </div>
+      </section>
+
     </div>
-  </div>
-</section>
 
-<hr class="div">
-
-<!-- ══════ CTA ══════ -->
-<section id="contacto">
-  <div class="wrap">
-    <p class="cta-eyebrow">Monterrey, NL — MX</p>
-    <h2 class="display cta-h">Un emblema no se impone, <em>se construye.</em></h2>
-    <p class="cta-sub">
-      La primera conversación no cuesta nada.
-    </p>
-    <div class="cta-group">
-      <a href="#" class="btn btn-solid" id="wa">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Escribir por WhatsApp
-      </a>
-      <a href="#frentes" class="btn btn-ghost">Ver qué hacemos</a>
+    <div class="bar">
+      <span>Casa Emblema — <b id="stName">Diagnóstico</b></span>
+      <span class="hint">↑ ↓ · scroll · clic</span>
+      <span><b id="stIx">01</b> / 04<span class="geo"> — 25.67° N 100.31° W</span></span>
     </div>
-  </div>
-</section>
 
-<footer>
-  <span>© <span id="yr"></span> Casa Emblema — Monterrey, MX</span>
-  <span>Content <span style="color:#7EA2B8">&lt;</span> Strategy</span>
-</footer>
+  </main>
+</div>
 
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
+(function(){
+'use strict';
+var NS='http://www.w3.org/2000/svg', svg=document.getElementById('svg');
+var W=1400,H=520,N=14,CX=700,CY=258;
 
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  },{ threshold:.08, rootMargin:'0px 0px -50px 0px' });
-  document.querySelectorAll('.fade').forEach(function(el){ io.observe(el); });
+/* ── node layouts per state ── */
+function scatter(){return [
+  [236,110],[493,199],[344,346],[655,89],[846,249],[580,420],[1039,145],
+  [784,364],[1215,288],[966,437],[179,275],[1137,72],[420,104],[1302,390]];}
 
-  window.addEventListener('scroll', function(){
-    document.querySelector('nav').style.borderBottomColor =
-      window.scrollY > 40 ? 'rgba(245,245,240,0.11)' : 'rgba(245,245,240,0.06)';
+function fork(){var s=[],i;
+  s.push([210,CY]);
+  for(i=0;i<6;i++) s.push([400+i*172, CY-30-i*27]);
+  for(i=0;i<7;i++) s.push([400+i*148, CY+30-0+i*24]);
+  return s.slice(0,N);}
+
+function seq(){var s=[],i;
+  for(i=0;i<N;i++) s.push([150+i*(1100/(N-1)), CY + (i%2?-10:10)]);
+  return s;}
+
+function ring(){var s=[],i;
+  for(i=0;i<N;i++){var a=i/N*6.283-1.57; s.push([CX+Math.cos(a)*215, CY+Math.sin(a)*172]);}
+  return s;}
+
+var LAYOUTS=[scatter(),fork(),seq(),ring()];
+
+/* ── edges per state: [fromIdx,toIdx,accent] ── */
+var EDGES=[
+  [],
+  [[0,1,1],[1,2,1],[2,3,1],[3,4,1],[4,5,1],[5,6,1],
+   [0,7,0],[7,8,0],[8,9,0],[9,10,0],[10,11,0],[11,12,0],[12,13,0]],
+  (function(){var e=[];for(var i=0;i<N-1;i++)e.push([i,i+1,i<N/2?1:0]);return e;})(),
+  (function(){var e=[];for(var i=0;i<N;i++)e.push([i,(i+1)%N,0]);return e;})()
+];
+
+var RDT=[
+  ['Formación','Dispersión','14 señales · 0 ejes'],
+  ['Formación','Bifurcación','1 origen · 2 rutas'],
+  ['Formación','Secuencia','3 fases · 1 eje'],
+  ['Formación','Cierre','14 nodos · 1 sistema']
+];
+
+var TAGS=[
+  ['',''],
+  ['Algo nuevo','Ya opera'],
+  ['Estrategia','Ejecución'],
+  ['','']
+];
+
+/* ── build ── */
+/* graticule */
+var gG=document.createElementNS(NS,'g'); gG.setAttribute('class','gr');
+function gl(x1,y1,x2,y2,cls){var l=document.createElementNS(NS,'line');
+  l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
+  if(cls)l.setAttribute('class',cls); return l;}
+for(var gx=100;gx<W;gx+=100) gG.appendChild(gl(gx,0,gx,H, gx===700?'ax':''));
+for(var gy=65;gy<H;gy+=65)  gG.appendChild(gl(0,gy,W,gy, gy===260?'ax':''));
+svg.appendChild(gG);
+
+/* edge rulers */
+var gT=document.createElementNS(NS,'g'); gT.setAttribute('class','tk');
+for(var tx=0;tx<=W;tx+=25){var mj=tx%100===0; gT.appendChild(gl(tx,H,tx,H-(mj?10:5), mj?'mj':''));}
+for(var ty=0;ty<=H;ty+=26){var mj2=ty%130===0; gT.appendChild(gl(0,ty,(mj2?10:5),ty, mj2?'mj':''));}
+svg.appendChild(gT);
+
+var gL=document.createElementNS(NS,'g'), gN=document.createElementNS(NS,'g');
+svg.appendChild(gL); svg.appendChild(gN);
+var nodes=[],lines=[],i;
+for(i=0;i<N;i++){
+  var g=document.createElementNS(NS,'g'); g.setAttribute('class','nd');
+  var c=document.createElementNS(NS,'circle'); c.setAttribute('r', i===0?5.5:3.6);
+  g.appendChild(c); gN.appendChild(g); nodes.push(g);
+}
+var maxE=0; EDGES.forEach(function(E){ if(E.length>maxE) maxE=E.length; });
+for(i=0;i<maxE;i++){
+  var l=document.createElementNS(NS,'line'); l.setAttribute('class','ln');
+  l.setAttribute('opacity','0'); gL.appendChild(l); lines.push(l);
+}
+
+var tagA=document.getElementById('tagA'), tagB=document.getElementById('tagB');
+var rdA=document.getElementById('rdA'), rdB=document.getElementById('rdB'), rdC=document.getElementById('rdC');
+var stName=document.getElementById('stName'), stIx=document.getElementById('stIx');
+var NAMES=['Diagnóstico','Caminos','Método','Contacto'];
+var cur=-1;
+
+function draw(s){
+  var P=LAYOUTS[s], E=EDGES[s];
+  rdA.textContent=RDT[s][0]; rdB.textContent=RDT[s][1]; rdC.textContent=RDT[s][2];
+  nodes.forEach(function(g,k){
+    g.setAttribute('transform','translate('+P[k][0]+','+P[k][1]+')');
+    g.classList.toggle('d', s===0 && k!==0);
+    g.style.opacity = (s===1 && k===0) ? 1 : (s===3 ? .85 : 1);
   });
-
-  /* ── ACTIVAR WHATSAPP ──
-     Descomenta la línea de abajo y reemplaza el número (formato: 52 + 10 dígitos) */
-  // document.getElementById('wa').href = 'https://wa.me/52XXXXXXXXXX?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Casa%20Emblema.';
-
-  document.getElementById('wa').addEventListener('click', function(e){
-    if (e.currentTarget.getAttribute('href') === '#') e.preventDefault();
+  lines.forEach(function(l,k){
+    var e=E[k];
+    if(!e){ l.setAttribute('opacity','0'); l.classList.remove('on'); return; }
+    var a=P[e[0]], b=P[e[1]];
+    l.setAttribute('x1',a[0]); l.setAttribute('y1',a[1]);
+    l.setAttribute('x2',b[0]); l.setAttribute('y2',b[1]);
+    var len=Math.hypot(b[0]-a[0], b[1]-a[1]);
+    l.style.strokeDasharray=len; l.style.strokeDashoffset=len;
+    l.classList.toggle('acc', !!e[2]);
+    l.setAttribute('opacity','1');
+    void l.getBoundingClientRect();
+    l.style.strokeDashoffset=0;
   });
+  var r=svg.getBoundingClientRect(), sc=Math.min(r.width/W, r.height/H),
+      ox=(r.width-W*sc)/2, oy=(r.height-H*sc)/2;
+  function place(el,txt,px,py){
+    if(!txt){ el.classList.remove('on'); return; }
+    el.textContent=txt;
+    el.style.left=(ox+px*sc)+'px'; el.style.top=(oy+py*sc)+'px';
+    el.classList.add('on');
+  }
+  if(s===1){ place(tagA,TAGS[1][0],300,150); place(tagB,TAGS[1][1],300,420); }
+  else if(s===2){ place(tagA,TAGS[2][0],120,196); place(tagB,TAGS[2][1],560,196); }
+  else { tagA.classList.remove('on'); tagB.classList.remove('on'); }
+}
+
+function go(s){
+  s=Math.max(0,Math.min(3,s)); if(s===cur) return; cur=s;
+  document.querySelectorAll('.scene').forEach(function(x){ x.classList.toggle('on', +x.dataset.s===s); });
+  document.querySelectorAll('#idx li').forEach(function(x,k){ x.classList.toggle('on', k===s); });
+  stName.textContent=NAMES[s]; stIx.textContent='0'+(s+1);
+  draw(s);
+}
+
+document.querySelectorAll('#idx button').forEach(function(b){
+  b.addEventListener('click', function(){ go(+b.dataset.s); });
+});
+addEventListener('keydown', function(e){
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); go(cur+1); }
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){ e.preventDefault(); go(cur-1); }
+});
+var lock=0;
+addEventListener('wheel', function(e){
+  if(innerWidth<=820) return;
+  var t=Date.now(); if(t-lock<760) return;
+  if(Math.abs(e.deltaY)<14) return;
+  lock=t; go(cur + (e.deltaY>0?1:-1));
+}, {passive:true});
+var ty=0;
+addEventListener('touchstart', function(e){ ty=e.touches[0].clientY; }, {passive:true});
+addEventListener('resize', function(){ draw(cur); });
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ draw(cur); });
+
+go(0);
+})();
 </script>
-
 </body>
 </html>
