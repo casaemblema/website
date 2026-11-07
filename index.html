@@ -8,7 +8,13 @@
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- no bloquea el render: si Google tarda, la pagina ya se ve -->
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Martian+Mono:wght@300;400;500&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null"
+  href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Martian+Mono:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Martian+Mono:wght@300;400;500&display=swap"></noscript>
 <style>
 :root{
   --bg:#0E1013; --fg:#F5F5F0; --dim:#AEB4BB; --faint:#78808A; --ghost:#414952;
